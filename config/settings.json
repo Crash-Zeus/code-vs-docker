@@ -1,0 +1,142 @@
+{
+    "files.autoSave": "afterDelay",
+    // Old font without ligatures
+    // "editor.fontFamily": "'Consolas'",
+    "editor.fontFamily": "'Fira Code'",
+    // Regular weight
+    "editor.fontWeight": "400",
+    // Add font ligatures
+    "editor.fontLigatures": true,
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "Dracula",
+    "editor.smoothScrolling": true,
+    "editor.cursorSmoothCaretAnimation": true,
+    "editor.mouseWheelZoom": true,
+    "window.titleBarStyle": "custom",
+    // Size minimap min of 1
+    "editor.minimap.scale": 1,
+    // Zoom Level window
+    "window.zoomLevel": -1,
+    "editor.fontSize": 14,
+    // Encoding
+    "files.encoding": "utf8",
+    "[python]": {
+        "files.encoding": "utf8"
+    },
+    "[json]": {
+        "editor.quickSuggestions": {
+            "strings": true
+        },
+        "editor.suggest.insertMode": "replace",
+        "files.encoding": "utf8"
+    },
+    "[php]": {
+        "files.encoding": "utf8"
+    },
+    "git.confirmSync": false,
+    "editor.multiCursorModifier": "alt",
+    // Format on paste
+    "editor.formatOnPaste": false,
+    // PHP executable path
+    "php.executablePath": "/usr/local/bin/php",
+    // Enable/disable built-in PHP validation
+    "php.validate.enable": true,
+    // Points to the PHP executable
+    "php.validate.executablePath": "/usr/local/bin/php",
+    // Run on save or on type
+    "php.validate.run": "onSave",
+    "editor.cursorWidth": 3,
+    // Integrated terminal customization
+    "terminal.integrated.cursorStyle": "line",
+    "terminal.integrated.fontFamily": "consolas",
+    "terminal.integrated.fontSize": 16,
+    "terminal.integrated.letterSpacing": 1,
+    // Debug bar
+    "debug.allowBreakpointsEverywhere": true,
+    "debug.toolBarLocation": "docked",
+    "workbench.activityBar.visible": true,
+    "editor.renderWhitespace": "all",
+    "git.enableSmartCommit": true,
+    "git.autofetch": false,
+    "workbench.preferredDarkColorTheme": "Monokai",
+    "editor.minimap.enabled": false,
+    // Discord rpc
+    "discord.detailsEditing": "{dirname}/{filename}",
+    "discord.lowerDetailsEditing": "{totallines} lines, Size {filesize}",
+    "discord.largeImage": "Editing a {LANG} file",
+    "discord.detailsIdle": "AFK from personal computer",
+    "discord.lowerDetailsIdle": "Work from home",
+    "discord.detailsDebugging": "Debugging",
+    "discord.lowerDetailsDebugging": "{dirname}/{filename}",
+    "discord.workspaceElapsedTime": true,
+    // php code sniffer
+    "phpcs.enable": true,
+    "phpcs.executablePath": "/usr/local/bin/phpcs",
+    "launch": {
+
+
+
+    },
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": [
+                    "entity.name.type.class",
+                    "keyword.operator.expression",
+                    "storage.modifier",
+                    "storage.type.class",
+                    "keyword.other.use",
+                    "keyword.control.return",
+                    "storage.type.function.python",
+                    "support.function.js",
+                    "support.function.console.js",
+                    "storage.type.js",
+                    "keyword.control.flow.js",
+                    "keyword.other.namespace.php",
+                    "storage.type.function.php",
+                    "support.function.magic.php"
+                ],
+                "settings": {
+                    "fontStyle": "italic"
+                }
+            },
+            {
+                "scope": [
+                    "comment"
+                ],
+                "settings": {
+                    "fontStyle": "bold"
+                }
+            },
+            {
+                "scope": [
+                    "keyword.operator.new.js"
+                ],
+                "settings": {
+                    "fontStyle": ""
+                }
+            },
+            {
+                "scope": [
+                    "variable.other.property.js"
+                ],
+                "settings": {
+                    "foreground": "#80bfff"
+                }
+            }
+        ]
+    },
+    "phpcs.warningSeverity": 5,
+    "phpcs.errorSeverity": 0,
+    "breadcrumbs.enabled": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "python.showStartPage": false,
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true,
+    "python.pythonPath": "/usr/local/bin/python3.8",
+    "scm.alwaysShowRepositories": true,
+    "intelephense.environment.phpVersion": "8.0",
+    "terminal.integrated.shell.linux" : "/bin/bash",
+    // Disable welcome page for vscode & extensions
+    "workbench.startupEditor":"none"
+}

@@ -1,0 +1,14 @@
+version: "3"
+services:
+  vscode_docker:
+    build: .
+    user: dev
+    volumes:
+      # Volume code accessible
+      - ./app:/app:rw
+      # unix X11
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+    environment:
+      - DISPLAY=unix${DISPLAY}
+    container_name: vscode_docker
+    command: "sleep infinity"
