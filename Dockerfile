@@ -13,6 +13,8 @@ RUN adduser --quiet --disabled-password dev && usermod -aG sudo dev
 # Copy config
 COPY ./config/ /init
 
+RUN mv /init/sudoers.txt /etc/sudoers && chmod 440 /etc/sudoers
+
 # Install fonts
 RUN mkdir -p /home/dev/.local/share/fonts && mv /init/ttf /home/dev/.local/share/fonts && fc-cache -f -v
 
