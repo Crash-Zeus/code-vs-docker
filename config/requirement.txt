@@ -14,13 +14,11 @@ formulahendry.auto-close-tag
 formulahendry.auto-rename-tag
 ikappas.phpcs
 jerrygoyal.shortcut-menu-bar
-jolaleye.horizon-theme-vscode
 kakumei.php-xdebug
 manasxx.PHPDocument
 MehediDracula.php-namespace-resolver
 MikeBovenlander.formate
 mrmlnc.vscode-apache
-ms-azuretools.vscode-docker
 ms-python.python
 ms-vscode.vs-keybindings
 mtxr.sqltools
