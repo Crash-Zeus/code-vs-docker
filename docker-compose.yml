@@ -8,6 +8,9 @@ services:
       - ./app:/app:rw
       # unix X11
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      # vscode extension
+      - ./extensions:/home/dev/.vscode:rw
+      - ./code:/home/dev/.config/Code:rw
     environment:
       - DISPLAY=unix${DISPLAY}
     container_name: vscode_docker
