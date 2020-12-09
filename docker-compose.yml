@@ -3,6 +3,7 @@ services:
   vscode_docker:
     build: .
     user: dev
+    hostname: vsdocker
     volumes:
       # Volume code accessible
       - ./app:/app:rw

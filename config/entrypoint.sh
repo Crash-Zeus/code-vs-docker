@@ -9,6 +9,7 @@ fix_rights() {
         sudo -u root chown -R dev /home/dev/.vscode && chmod 777 -R /home/dev/.vscode
         sudo -u root chown -R dev /home/dev/.config && chmod 777 -R /home/dev/.config/Code
     fi
+    sudo -u root sudo mkdir -p /home/dev/.local/share/nano && sudo -u root chmod 777 /home/dev/.local/share/nano
 }
 
 function install_ext() {
