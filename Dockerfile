@@ -1,7 +1,7 @@
 FROM php:7.4.5-cli
 
 # Install required
-RUN apt-get update && apt-get -y --no-install-recommends install software-properties-common curl apt-transport-https wget gnupg gnupg2 gnupg1 libasound2 libegl1 libx11-6 sudo bash
+RUN apt-get update && apt-get -y --no-install-recommends install software-properties-common curl apt-transport-https wget gnupg gnupg2 gnupg1 libasound2 libegl1 libx11-6 sudo bash git ssh nano
 
 # Install vscode
 RUN wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | apt-key add - && add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
