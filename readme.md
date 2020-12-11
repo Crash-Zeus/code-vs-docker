@@ -1,25 +1,26 @@
-# Vscode containeriser
+# code-vs-docker
 
-Docker image size : 844 MB with new font
+VsCode containerisé intégrant
+- outillage bash
+- modules recommandés
 
-## Usage
+## Reste à faire
+- Problème mapping user 1000 / non 1000
+- Remap le $HOME/.ssh host sur le $HOME/.ssh de l'user du container
 
-Lacement du compose
-Le tout premier démarrage est accompagner de l'installation des extensions, la vitesse dépend de votre connexion mais tout ce fait en arrière plan (voir logs)
+## Installation
 ```bash
-    docker-compose up -d
+# Installation des alias (rajouter le basic-auth)
+curl -k https://gitlab.mios.maxicoffee.domains/jonas/vsdocker/-/blob/master/install.sh
+chmod +x install.sh && ./install.sh && rm install.sh
+
+# Redémarrer
+reboot
+
+# installation des modules recommandés
+tty-mccode install
 ```
 
-Vérification log
-```bash
-    docker logs --follow vsdocker
-```
-
-Ouverture d'une instance vscode
-Le wordir de test est /app
-```bash
-    docker exec -it vscode code [workdir]
-```
-
-Tips:
-setup un WORKDIR dans l'image permet d'ajouter un bookmark accès rapide dans le gestionnaire de fichier interne dispo dans le menu vscode => file => open [folder/file/workspace]
+## Utilisation
+Une icone doit apparaitre via le launcher ubuntu, cherche "mccode" ou "Maxi VSCode".  
+Il est également possible de lancer "Maxi VSCode" via la commande "mccode"
