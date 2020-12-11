@@ -2,9 +2,9 @@
 [![](https://img.shields.io/docker/cloud/build/crashzeus/vsdocker?style=for-the-badge)](https://hub.docker.com/r/crashzeus/vsdocker/builds)
 [![](https://img.shields.io/docker/image-size/crashzeus/vsdocker/stable?style=for-the-badge)](https://hub.docker.com/r/crashzeus/vsdocker)
 [![](https://img.shields.io/docker/stars/crashzeus/vsdocker?style=for-the-badge)](https://hub.docker.com/r/crashzeus/vsdocker)
-[![](https://img.shields.io/github/license/crashzeus/code-vs-docker?style=for-the-badge)](https://github.com/Crash-Zeus/code-vs-docker/blob/master/LICENSE)
-[![](https://img.shields.io/github/stars/crashzeus/code-vs-docker?style=for-the-badge)](https://github.com/Crash-Zeus/code-vs-docker/)
-[![](https://img.shields.io/github/last-commit/crashzeus/code-vs-docker?style=for-the-badge)](https://github.com/Crash-Zeus/code-vs-docker/)
+[![](https://img.shields.io/github/license/Crash-Zeus/code-vs-docker?style=for-the-badge)](https://github.com/Crash-Zeus/code-vs-docker/blob/master/LICENSE)
+[![](https://img.shields.io/github/stars/Crash-Zeus/code-vs-docker?style=for-the-badge)](https://github.com/Crash-Zeus/code-vs-docker/)
+[![](https://img.shields.io/github/last-commit/Crash-Zeus/code-vs-docker?style=for-the-badge)](https://github.com/Crash-Zeus/code-vs-docker/)
 
 Your favorite IDE as you've never seen it before
 
