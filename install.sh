@@ -1,5 +1,5 @@
 #!/bin/bash
-sudo echo "Installation MaxiCode"
+sudo echo "Installation vsdocker"
 
 # Création du fichier des alias 
 alias_file="$HOME/.dockcode-alias"

@@ -16,6 +16,5 @@ reboot
 tty-dockcode install
 ```
 
-## Utilisation
-Une icone doit apparaitre via le launcher ubuntu, cherche "dockcode" ou "Maxi VSCode".  
-Il est également possible de lancer "Maxi VSCode" via la commande "dockcode"
+## Usage
+On cli use dockcode (same as code on host) or tty-dockcode [command] (use bash ton enter in container)
