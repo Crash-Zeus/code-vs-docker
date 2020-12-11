@@ -1,4 +1,4 @@
-FROM php:7.4.5-cli
+FROM debian:10-slim
 
 # Install required
 RUN apt-get update && apt-get -y --no-install-recommends install \
@@ -21,11 +21,14 @@ RUN apt-get update && apt-get -y --no-install-recommends install \
     sudo \
     wget
 
-# Install vscode
-RUN wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | apt-key add - && \
+# Install vscode & php
+RUN echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee -a /etc/apt/sources.list.d/php.list \
+    && curl https://packages.sury.org/php/apt.gpg | apt-key add && wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | apt-key add - && \
     add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" && \
     apt-get update && \
-    apt-get install -y code 
+    apt-get install -y code \
+    php7.4-cli \
+    php-pear
 
 # Add user needed to launch vscode propertly
 RUN adduser --quiet --disabled-password vscode && \
@@ -47,7 +50,7 @@ RUN mkdir -p /usr/share/fonts && \
 RUN pear install PHP_CodeSniffer
 
 # Clean image
-RUN rm -rf /var/lib/apt/lists/* && \
+RUN rm -rf /var/lib/apt/lists/* && rm -rf /etc/apt/sources.list.d/* && \
     apt-get purge --auto-remove && \
     apt-get clean && rm -rf /init/ttf
 

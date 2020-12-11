@@ -35,7 +35,6 @@ function fix_group() {
     if [ -S /var/run/docker.sock ]; then
         DOCKER_GID=$(stat -c '%g' /var/run/docker.sock)
         sudo groupadd -for -g ${DOCKER_GID} docker
-        sudo gpasswd -a vscode docker
     fi
 }
 
@@ -57,11 +56,7 @@ fi
 case $1 in
 
   "launch")
-    if [ -S /var/run/docker.sock ]; then
-        sg docker -c "code"
-    else
-        code
-    fi
+    code
     while pgrep -n code > /dev/null; do sleep 1; done
     ;;
 
@@ -71,11 +66,7 @@ case $1 in
 
   *)
     echo "Launching command $@"
-    if [ -S /var/run/docker.sock ]; then
-        sg docker -c $@
-    else
-        $@
-    fi
+    $@
     ;;
 esac
 

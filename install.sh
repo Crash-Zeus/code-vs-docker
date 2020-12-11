@@ -1,13 +1,18 @@
 #!/bin/bash
-sudo echo "Installation MaxiCode"
+sudo echo "Install vsdocker"
+
+echo "- Pull image"
+docker pull crashzeus/vsdocker:stable
 
 # Création du fichier des alias 
 alias_file="$HOME/.dockcode-alias"
-echo "- création fichier alias: $alias_file"
+echo "- Create alias file : $alias_file"
 echo "# - ALIAS dockcode ----------
 alias dockcode=\"docker run --rm -d \\
     --user \$(id -u):\$(id -g) \\
     -v \${HOME}:/home/\$(whoami):rw \\
+    -v \${HOME}/.ssh:/home/vscode/.ssh:rw \\
+    -v \${HOME}/.gitconfig:/home/vscode/.gitconfig:ro \\
     -v /srv:/srv:rw \\
     -v /tmp/.X11-unix:/tmp/.X11-unix:rw \\
     -v /srv/vsdocker/.vscode:/home/\$(whoami)/.vscode:rw \\
@@ -19,12 +24,16 @@ alias dockcode=\"docker run --rm -d \\
     -e DISPLAY=unix\${DISPLAY} \\
     -e HOME=/home/\$(whoami) \\
     -w /home/\$(whoami) \\
+    --group-add \$(stat -c '%g' /var/run/docker.sock) \\
+    --group-add sudo \\
     crashzeus/vsdocker:stable launch > /dev/null\"
 
 # - ALIAS TTY-dockcode -------
 alias tty-dockcode=\"docker run -it --rm \\
     --user \$(id -u):\$(id -g) \\
     -v \${HOME}:/home/\$(whoami):rw \\
+    -v \${HOME}/.ssh:/home/vscode/.ssh:rw \\
+    -v \${HOME}/.gitconfig:/home/vscode/.gitconfig:ro \\
     -v /srv:/srv:rw \\
     -v /srv/vsdocker/.vscode:/home/\$(whoami)/.vscode:rw \\
     -v /srv/vsdocker/.config/Code:/home/\$(whoami)/.config/Code:rw \\
@@ -34,12 +43,14 @@ alias tty-dockcode=\"docker run -it --rm \\
     --network=host \\
     -e HOME=/home/\$(whoami) \\
     -w /home/\$(whoami) \\
+    --group-add \$(stat -c '%g' /var/run/docker.sock) \\
+    --group-add sudo \\
     crashzeus/vsdocker:stable \"
 " > $alias_file
 
 # Création du raccourci launcher
 desktop_file="/usr/share/applications/dockcode.desktop"
-echo "- création fichier : $desktop_file"
+echo "- Create file : $desktop_file"
 echo "[Desktop Entry]
 Name=Docker-VSCode
 Comment=Code Editing. Redefined. Dockerise.
@@ -66,8 +77,8 @@ sudo mv /tmp/dockcode.desktop $desktop_file
 bashrcFile="$HOME/.bashrc"
 aliasSrc="source $alias_file"
 if grep -q "$aliasSrc" "$bashrcFile"; then
-  echo "- chargement alias déja présent dans .bashrc"
+  echo "- Alias already exist in .bashrc"
 else
   printf "\n$aliasSrc\n\n" >> $bashrcFile
-  echo "- chargement alias ajouté dans .bashrc"
+  echo "- Alias add to .bashrc"
 fi  
