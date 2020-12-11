@@ -1,22 +1,57 @@
 # code-vs-docker
+[![](https://img.shields.io/docker/cloud/build/crashzeus/vsdocker?style=for-the-badge)](https://hub.docker.com/r/crashzeus/vsdocker/builds)
+[![](https://img.shields.io/docker/image-size/crashzeus/vsdocker/stable?style=for-the-badge)](https://hub.docker.com/r/crashzeus/vsdocker)
+[![](https://img.shields.io/docker/stars/crashzeus/vsdocker?style=for-the-badge)](https://hub.docker.com/r/crashzeus/vsdocker)
+[![](https://img.shields.io/github/license/crashzeus/code-vs-docker?style=for-the-badge)](https://github.com/Crash-Zeus/code-vs-docker/blob/master/LICENSE)
+[![](https://img.shields.io/github/stars/crashzeus/code-vs-docker?style=for-the-badge)](https://github.com/Crash-Zeus/code-vs-docker/)
+[![](https://img.shields.io/github/last-commit/crashzeus/code-vs-docker?style=for-the-badge)](https://github.com/Crash-Zeus/code-vs-docker/)
 
+Your favorite IDE as you've never seen it before
+
+![](./.gitimage/vsdocker.gif)
+
+## Prerequisite
+- [Docker-ce](https://docs.docker.com/get-docker/)
+- [Docker-compose](https://docs.docker.com/compose/install/)
+- Xorg server (X11)
+
+---
+## Parameters
+
+You can parameters you're vscode settings
+- Put extension wee need in requirement.txt, if you have vs code local, you can use `cd .config && rm requirement.txt && code --list-extensions > requirement.txt` to freeze you're local extention
+- Put you're settings into settings.json
+
+A test sample is already present in the config folder
+
+---
 ## Installation
+
 ```bash
-# Installation des alias (rajouter le basic-auth)
+# alias installation and .desktop application
 ./install.sh
 
-# Redémarrer
-reboot
-
-# installation des modules recommandés
+# install extension that specified in config/requirement.txt
 tty-dockcode install
+
+# Run container without x11 binding (juste tty)
+tty-dockcode bash
+
+# Run container with x11 binding (open vscode window)
+dockcode
 ```
 
+---
+
 ## Usage
+
 On cli use dockcode (same as code on host) or tty-dockcode [command] (use bash ton enter in container)
 
+You can use this two commands too :
 
-alias dockcode="docker run --rm -d \
+Run container on window mode (like dockcode alias)
+```bash
+docker run --rm -d \
   --user $(id -u):$(id -g) \
   -v ${HOME}:/home/$(whoami):rw \
   -v ${HOME}/.ssh:/home/vscode/.ssh:rw \
@@ -34,9 +69,13 @@ alias dockcode="docker run --rm -d \
   -e USER=$(whoami) \
   -w /home/$(whoami) \
   --group-add $(stat -c '%g' /var/run/docker.sock) \
-  crashzeus/vsdocker:latest launch > /dev/null"
+  --group-add sudo \
+  crashzeus/vsdocker:stable launch > /dev/null
+```
 
-alias tty-dockcode="docker run -it --rm \
+Run container on window mode (like tty-dockcode alias)
+```bash
+docker run -it --rm \
   --user $(id -u):$(id -g) \
   -v ${HOME}:/home/$(whoami):rw \
   -v ${HOME}/.ssh:/home/vscode/.ssh:rw \
@@ -52,4 +91,9 @@ alias tty-dockcode="docker run -it --rm \
   -e USER=$(whoami) \
   -w /home/$(whoami) \
   --group-add $(stat -c '%g' /var/run/docker.sock) \
-  crashzeus/vsdocker:latest "
+  --group-add sudo \
+  crashzeus/vsdocker:stable
+```
+
+---
+

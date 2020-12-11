@@ -1,8 +1,17 @@
 #!/bin/bash
 sudo echo "Install vsdocker"
 
-echo "- Pull image"
-docker pull crashzeus/vsdocker:stable
+docker_img=crashzeus/vsdocker:stable
+
+read -p "Build localy ? Y/n " build_local
+
+if [ "$build_local" == "Y" ] || [ "$build_local" == "y" ] || [ "$build_local" == "" ] || [ "$build_local" == "yes" ] || [ "$build_local" == "Yes" ] ; then
+  echo "Build local image"
+  docker build -t $docker_img .
+else
+  echo "Pull $docker_img"
+  docker pull $docker_img
+fi
 
 # Création du fichier des alias 
 alias_file="$HOME/.dockcode-alias"
@@ -48,7 +57,7 @@ alias tty-dockcode=\"docker run -it --rm \\
     crashzeus/vsdocker:stable \"
 " > $alias_file
 
-# Création du raccourci launcher
+# launcher file
 desktop_file="/usr/share/applications/dockcode.desktop"
 echo "- Create file : $desktop_file"
 echo "[Desktop Entry]
@@ -73,7 +82,7 @@ Icon=com.visualstudio.code
 " > /tmp/dockcode.desktop
 sudo mv /tmp/dockcode.desktop $desktop_file
 
-# Création du raccourci launcher
+# add to bashrc
 bashrcFile="$HOME/.bashrc"
 aliasSrc="source $alias_file"
 if grep -q "$aliasSrc" "$bashrcFile"; then
@@ -81,4 +90,13 @@ if grep -q "$aliasSrc" "$bashrcFile"; then
 else
   printf "\n$aliasSrc\n\n" >> $bashrcFile
   echo "- Alias add to .bashrc"
-fi  
+fi
+
+read -p "Need to reboot - reboot now ? Y/n " reboot_ok
+
+if [ "$reboot_ok" == "Y" ] || [ "$reboot_ok" == "y" ] || [ "$reboot_ok" == "" ] || [ "$reboot_ok" == "yes" ] || [ "$reboot_ok" == "Yes" ] ; then
+  sudo reboot
+else
+  echo "Installation finish"
+  echo "Need to be reboot"
+fi
