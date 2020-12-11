@@ -41,8 +41,8 @@ alias tty-dockcode=\"docker run -it --rm \\
 desktop_file="/usr/share/applications/dockcode.desktop"
 echo "- création fichier : $desktop_file"
 echo "[Desktop Entry]
-Name=Maxi VSCode
-Comment=Code Editing. Redefined.
+Name=Docker-VSCode
+Comment=Code Editing. Redefined. Dockerise.
 GenericName=Text Editor
 Exec=dockcode
 Icon=com.visualstudio.code
