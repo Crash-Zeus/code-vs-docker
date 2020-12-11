@@ -25,6 +25,7 @@ alias dockcode=\"docker run --rm -d \\
     -e HOME=/home/\$(whoami) \\
     -w /home/\$(whoami) \\
     --group-add \$(stat -c '%g' /var/run/docker.sock) \\
+    --group-add sudo \\
     crashzeus/vsdocker:stable launch > /dev/null\"
 
 # - ALIAS TTY-dockcode -------
@@ -43,6 +44,7 @@ alias tty-dockcode=\"docker run -it --rm \\
     -e HOME=/home/\$(whoami) \\
     -w /home/\$(whoami) \\
     --group-add \$(stat -c '%g' /var/run/docker.sock) \\
+    --group-add sudo \\
     crashzeus/vsdocker:stable \"
 " > $alias_file
 
