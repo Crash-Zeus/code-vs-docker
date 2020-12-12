@@ -9,7 +9,7 @@
 Your favorite IDE as you've never seen it before
 (click on gif to view the video on youtube)
 
-[![Alt text](./.gitimage/vsdocker.gif))](https://youtu.be/2nPHDu8KU9c)
+[![Alt text](./.gitimage/vsdocker.gif)](https://youtu.be/2nPHDu8KU9c)
 ## Prerequisite
 - [Docker-ce](https://docs.docker.com/get-docker/)
 - [Docker-compose](https://docs.docker.com/compose/install/)
