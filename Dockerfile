@@ -28,6 +28,7 @@ RUN echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee -a /
     apt-get update && \
     apt-get install -y code \
     php7.4-cli \
+    php7.4-xml \
     php-pear
 
 # Add user needed to launch vscode propertly
